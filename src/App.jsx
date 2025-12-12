@@ -81,8 +81,9 @@ const formatBaseShort = (n) => {
   return num.toFixed(1);
 };
 const formatBid = (n) => (typeof n === "number" ? n.toFixed(2) : n ?? "--");
-
+const isMobile = window.innerWidth < 768;
 export default function App() {
+  
   // core state
   const [socketId, setSocketId] = useState("");
   const [screen, setScreen] = useState("home"); // home | lobby | auction | finished
@@ -1296,7 +1297,6 @@ function renderRemainingPanel() {
   )
 }
 
-
 // styles
 const styles = {
   app: { minHeight: "100vh", background: "linear-gradient(180deg,#072339,#041826)", padding: "12px",width: "100%", maxWidth: "100%", overflowX: "hidden" , color: "#fff", fontFamily: "Inter, system-ui, sans-serif" },
@@ -1305,13 +1305,71 @@ const styles = {
   cardLarge: { background: "#0b1720", padding: 18, borderRadius: 10, boxShadow: "0 8px 30px rgba(0,0,0,0.6)", width: "100%" },
   container: { display: "flex", gap: 18 },
   input: { padding: "10px 12px", borderRadius: 8, border: "1px solid #223", background: "#07111a", color: "#fff", width: 260 },
-  greenBtn: { flexWrap: "wrap",justifyContent: "center",background: "#1ecf5b", border: 0, padding: "10px 14px", borderRadius: 20, cursor: "pointer" },
-  blueBtn: { flexWrap: "wrap",justifyContent: "center",background: "#21b8ff", border: 0, padding: "10px 14px", borderRadius: 20, cursor: "pointer" },
-  redBtn: { flexWrap: "wrap",justifyContent: "center",background: "#ff5b5b", border: 0, padding: "10px 14px", borderRadius: 20, cursor: "pointer" },
-  orangeBtn: {flexWrap: "wrap",justifyContent: "center", background: "#f5a623", border: 0, padding: "10px 14px", borderRadius: 20, cursor: "pointer" },
-  grayBtn: { flexWrap: "wrap",justifyContent: "center",background: "#666", border: 0, padding: "8px 12px", borderRadius: 8, cursor: "pointer", color: "#fff" },
+  greenBtn: {
+      background: "#1ecf5b",
+      border: 0,
+      padding: isMobile ? "12px 10px" : "10px 14px",
+      borderRadius: 20,
+      cursor: "pointer",
+      width: isMobile ? "100%" : "auto",
+      fontWeight: 700,
+      color:"#fff"
+    },
+  blueBtn: {
+      background: "#21b8ff",
+      border: 0,
+      padding: isMobile ? "12px 10px" : "10px 14px",
+      borderRadius: 20,
+      cursor: "pointer",
+      width: isMobile ? "100%" : "auto",
+      fontWeight: 700,
+      color:"#fff" 
+    },
+  redBtn: {
+      background: "#ff5b5b",
+      border: 0,
+      padding: isMobile ? "12px 10px" : "10px 14px",
+      borderRadius: 20,
+      cursor: "pointer",
+      width: isMobile ? "100%" : "auto",
+      fontWeight: 700,
+      color:"#fff" 
+    },
+  orangeBtn: {
+      background: "#f5a623",
+      border: 0,
+      padding: isMobile ? "12px 10px" : "10px 14px",
+      borderRadius: 20,
+      cursor: "pointer",
+      width: isMobile ? "100%" : "auto",
+      fontWeight: 700,
+      color:"#fff" 
+    },
+  grayBtn: {
+      background: "#666",
+      border: 0,
+      padding: isMobile ? "12px 10px" : "10px 14px",
+      borderRadius: 20,
+      cursor: "pointer",
+      width: isMobile ? "100%" : "auto",
+      fontWeight: 700,
+      color:"#fff"
+    },
   teamGrid: { display: "flex", flexWrap: "wrap",justifyContent: "center", gap: 12,width: "100%" },
-  teamBtn: { display: "flex", flexWrap: "wrap",justifyContent: "center", alignItems: "center", padding: 10, minWidth: 110, borderRadius: 8, background: "#07202b", color: "#fff", cursor: "pointer" },
+  teamBtn: {
+      display: "flex",
+      flexDirection: isMobile ? "column" : "row",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: isMobile ? 8 : 10,
+      minWidth: isMobile ? "45%" : 110,
+      width: isMobile ? "45%" : "auto",
+      borderRadius: 8,
+      background: "#07202b",
+      color: "#fff",
+      cursor: "pointer",
+      textAlign: "center",
+    },
   playersList: { marginTop: 8, display: "flex",flexWrap: "wrap",justifyContent: "center", flexDirection: "column", gap: 8, maxHeight: 220, overflowY: "auto" },
   playerRow: { display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 8px", borderRadius: 6, background: "#07121a" },
   avatar: { width: 36, height: 36, borderRadius: 8, background: "#08202a", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700 },
