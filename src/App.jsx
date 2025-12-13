@@ -361,21 +361,16 @@ export default function App() {
             onChange={(e) => setName(e.target.value)}
             style={styles.input}
           />
-
-          <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
-            <button onClick={createRoom} style={styles.greenBtn}>Create Room</button>
-
-            <input
+          <input
               placeholder="Enter Room Code"
               value={roomCodeInput}
               onChange={(e) => setRoomCodeInput(e.target.value)}
-              style={{ ...styles.input, flex: 1 }}
+              style={styles.input}
             />
-            <button onClick={joinRoom} style={styles.blueBtn}>Join Room</button>
-          </div>
 
-          <div style={{ marginTop: 10, fontSize: 13, color: "#bcd" }}>
-            Tip: Use two tabs/devices to test realtime bidding.
+          <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
+            <button onClick={createRoom} style={styles.greenBtn}>Create Room</button>
+            <button onClick={joinRoom} style={styles.blueBtn}>Join Room</button>
           </div>
 
           {error && <div style={styles.error}>{error}</div>}
@@ -1301,11 +1296,12 @@ function renderRemainingPanel() {
 const styles = {
   app: { minHeight: "100vh", background: "linear-gradient(180deg,#072339,#041826)", padding: "12px",width: "100%", maxWidth: "100%", overflowX: "hidden" , color: "#fff", fontFamily: "Inter, system-ui, sans-serif" },
   centered: { display: "flex", justifyContent: "center", alignItems: "center", minHeight: "80vh" },
-  card: { background: "#0b1720", padding: 20, borderRadius: 10, boxShadow: "0 8px 30px rgba(0,0,0,0.6)" },
+  card: { width: "100%", maxWidth: 420,background: "#0b1720", padding: 20, borderRadius: 14,display: "flex", flexDirection: "column", boxShadow: "0 8px 30px rgba(0,0,0,0.6)" },
   cardLarge: { background: "#0b1720", padding: 18, borderRadius: 10, boxShadow: "0 8px 30px rgba(0,0,0,0.6)", width: "100%" },
-  container: { display: "flex", gap: 18 },
-  input: { padding: "10px 12px", borderRadius: 8, border: "1px solid #223", background: "#07111a", color: "#fff", width: 260 },
+  container: { maxWidth: 420, margin: "0 auto" , padding: "16px" , display: "flex",flexDirection: "column", gap: 18 },
+  input: { width: "100%",padding: "12px 14px",marginBottom: 12, borderRadius: 8, border: "1px solid #223",fontSize: 16, background: "#07111a", color: "#fff", width: 260 },
   greenBtn: {
+      flex: 1,
       background: "#1ecf5b",
       border: 0,
       padding: isMobile ? "12px 10px" : "10px 14px",
@@ -1316,6 +1312,7 @@ const styles = {
       color:"#fff"
     },
   blueBtn: {
+      flex: 1,
       background: "#21b8ff",
       border: 0,
       padding: isMobile ? "12px 10px" : "10px 14px",
