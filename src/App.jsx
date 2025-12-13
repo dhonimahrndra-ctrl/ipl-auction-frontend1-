@@ -1299,10 +1299,10 @@ const styles = {
   centered: { display: "flex", justifyContent: "center", alignItems: "center", minHeight: "80vh" },
   page: {minHeight: "100vh", width: "100%", display: "flex", justifyContent: "center",alignItems: "flex-start", padding: isMobile ? "12px" : "16px", boxSizing: "border-box"},
   card: { width: "100%", maxWidth: "100%",minHeight: "100vh", background: "#0b1720", padding: 16,boxSizing: "border-box", borderRadius: 0,display: "flex", flexDirection: "column", boxShadow: "0 8px 30px rgba(0,0,0,0.6)" },
-  cardLarge: { background: "#0b1720", padding: 16, borderRadius: 10, boxShadow: "0 8px 30px rgba(0,0,0,0.6)", width: "100%" },
-  rightPanel: {width: isMobile ? "100%" : 360,position: isMobile ? "relative" : "sticky",top: isMobile ? "auto" : 20,marginTop: isMobile ? 16 : 0, maxWidth: 360, marginTop: 12},
-  soldBox: {width: "100%", maxHeight: "30vh", overflowY: "auto", padding: 12, borderRadius: 14, background: "rgba(0,0,0,0.6)", boxSizing: "border-box"},
-  container: { maxWidth: isMobile ? "100%" : 420,minHeight: "100vh",width: "100%",justifyContent: "center",alignItems: "stretch", margin: "0 auto" , padding: isMobile ? 12 : 16 , display: "flex",flexDirection: window.innerWidth < 768 ? "column" : "row", gap: isMobile ? 12 : 14 ,boxSizing: "border-box", background: "rgba(0,0,0,0.6)" },
+  cardLarge: { background: "#0b1720", padding: isMobile ? 14: 18, borderRadius: 12, boxShadow: "0 8px 30px rgba(0,0,0,0.6)", width: "100%",maxWidth: "100%" },
+  rightPanel: {width: "100%" ,position: "relative",marginTop: isMobile ? 16 : 0,},
+  soldBox: {width: "100%", maxHeight: isMobile ? "none" : "30vh", overflow: "auto", padding: 12, borderRadius: 14,marginBottom: 16, background: "rgba(0,0,0,0.6)", boxSizing: "border-box"},
+  container: { maxWidth: isMobile ? "100%" : 420,minHeight: "100vh",width: "100%",justifyContent: "center",alignItems: "stretch", margin: "0 auto" , padding: isMobile ? 12 : 20 , display: "flex",flexDirection: isMobile ? "column" : "row", gap: 16 ,boxSizing: "border-box", background: "rgba(0,0,0,0.6)" },
   input: { width: "100%",padding: "12px 14px",marginBottom: 12, borderRadius: 8, border: "1px solid #223",fontSize: 16, background: "#07111a", color: "#fff", width: 260 },
   greenBtn: {
       flex: 1,
@@ -1363,9 +1363,10 @@ const styles = {
       borderRadius: 20,
       cursor: "pointer",
       border: 0,
+      padding: isMobile ? "10px" : "14px",
+      fontSize: isMobile ? 14 : 16,
       fontWeight: 700,
-      color:"#fff" ,
-      gap: 10
+      color:"#fff" 
     },
   teamGrid: { display: "flex", flexWrap: "wrap",justifyContent: "center", gap: 12,width: "100%" },
   teamBtn: {
