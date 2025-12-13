@@ -353,7 +353,7 @@ export default function App() {
     return (
       <div style={styles.centered}>
         <div style={styles.card}>
-          <h1 style={{ margin: "0 0 12px 0" }}>IPL Mock Auction — Mockroom</h1>
+          <h1 style={{ margin: "0 0 12px 0" }}>IPL Mock Auction Mockroom</h1>
 
           <input
             placeholder="Enter your name"
