@@ -578,7 +578,7 @@ export default function App() {
                 +1 Cr
               </button>
 
-              <button onClick={useRTM} style={styles.bidbuttons}>
+              <button onClick={useRTM} style={styles.orangeBtn}>
                 Use RTM
               </button>
 
@@ -1359,6 +1359,12 @@ const styles = {
     bidbuttons: {
       display: "grid",
       gridTemplateColumns: "1fr 1fr",
+      background: "#1ecf5b",
+      borderRadius: 20,
+      cursor: "pointer",
+      border: 0,
+      fontWeight: 700,
+      color:"#fff" ,
       gap: 10
     },
   teamGrid: { display: "flex", flexWrap: "wrap",justifyContent: "center", gap: 12,width: "100%" },
