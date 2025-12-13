@@ -601,7 +601,7 @@ useEffect(() => {
           </div>
 
           {/* RIGHT SIDE */}
-          <div style={styles.rightPanel}>
+         {/*</div> <div style={styles.rightPanel}> */}
 
             {/* SOLD LIST */}
             <div style={styles.soldBox}>
@@ -684,7 +684,6 @@ useEffect(() => {
                 </div>
               ))}
             </div>
-          </div>
         </div>
 
       </div>
