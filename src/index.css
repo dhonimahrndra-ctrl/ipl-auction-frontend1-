@@ -1,85 +1,87 @@
-html,body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-}
-
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: linear-gradient(180deg, #072339, #041826);
+  color: #ffffff;
 }
-/* ========================= */
-/* MOBILE RESPONSIVE FIX */
-/* ========================= */
 
-@media (max-width: 768px) {
-  body {
-    overflow-x: hidden;
+button {
+  cursor: pointer;
+  border: none;
+}
+
+input {
+  outline: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+  padding: 16px;
+}
+
+.card {
+  background: #0b1f33;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #1e3a5f;
+  background: #071a2b;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.btn-green {
+  background: #22c55e;
+  color: #022c22;
+}
+
+.btn-blue {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.8;
+  margin-top: 12px;
+}
+
+/* Desktop enhancement */
+@media (min-width: 768px) {
+  .container {
+    max-width: 600px;
   }
 
-  /* Main app container */
-  .container,
-  .app,
-  .main {
-    flex-direction: column !important;
-    width: 100% !important;
-    padding: 12px !important;
-  }
-
-  /* Player card */
-  .card,
-  .cardLarge {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-bottom: 14px;
-  }
-
-  /* Right side panels (Remaining + Teams) */
-  .sidePanel,
-  .rightPanel {
-    position: static !important;
-    width: 100% !important;
-    margin-top: 14px;
-  }
-
-  /* Buttons */
-  button {
-    width: 100% !important;
-    margin-bottom: 10px;
-    font-size: 16px;
-    padding: 12px !important;
-  }
-
-  /* Bid buttons container */
-  .bidButtons,
-  .actions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  /* Team list */
-  .teamRow {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  /* Timer bar */
-  .progressBar {
-    width: 100% !important;
-  }
-
-  /* Text sizes */
-  h1, h2 {
-    font-size: 20px !important;
-  }
-
-  h3 {
-    font-size: 16px !important;
+  h1 {
+    font-size: 26px;
   }
 }

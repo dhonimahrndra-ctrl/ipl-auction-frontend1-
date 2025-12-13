@@ -81,7 +81,7 @@ const formatBaseShort = (n) => {
   return num.toFixed(1);
 };
 const formatBid = (n) => (typeof n === "number" ? n.toFixed(2) : n ?? "--");
-const isMobile = window.innerWidth < 768;
+
 export default function App() {
   
   // core state
@@ -93,6 +93,13 @@ export default function App() {
   const [myTeam, setMyTeam] = useState("");
   const [isHost, setIsHost] = useState(false);
   const [error, setError] = useState("");
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+useEffect(() => {
+  const onResize = () => setIsMobile(window.innerWidth < 768);
+  window.addEventListener("resize", onResize);
+  return () => window.removeEventListener("resize", onResize);
+}, []);
 
   // right panel
   const [panelOpen, setPanelOpen] = useState(false);
@@ -485,10 +492,10 @@ export default function App() {
       <div style={styles.cardLarge}>
 
         {/* MAIN TOP SECTION */}
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div className="auction-main" style={{display:"flex",gap: 16}}>
 
           {/* LEFT SIDE - CURRENT PLAYER INFO */}
-          <div style={{ width: "63%" }}>
+          <div style={{ width: isMobile ? "100%" : "63%" }}>
 
             {/* PLAYER HEADER */}
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
@@ -556,7 +563,7 @@ export default function App() {
             </div>
 
             {/* BIDDING BUTTONS */}
-            <div style={{ marginTop: 18, display: "flex", gap: 8, flexWrap: "wrap" }}>
+            <div className="bid-actions" style={{ marginTop:18 }}>
 
               <button
                 onClick={placeBaseBid}
@@ -1295,99 +1302,151 @@ function renderRemainingPanel() {
 
 // styles
 const styles = {
-  app: { minHeight: "100vh", background: "linear-gradient(180deg,#072339,#041826)", padding: "12px",width: "100%", maxWidth: "100%", overflowX: "hidden" , color: "#fff", fontFamily: "Inter, system-ui, sans-serif" },
-  centered: { display: "flex", justifyContent: "center", alignItems: "center", minHeight: "80vh" },
-  page: {minHeight: "100vh", width: "100%", display: "flex", justifyContent: "center",alignItems: "flex-start", padding: isMobile ? "12px" : "16px", boxSizing: "border-box"},
-  card: { width: "100%", maxWidth: "100%",minHeight: "100vh", background: "#0b1720", padding: 16,boxSizing: "border-box", borderRadius: 0,display: "flex", flexDirection: "column", boxShadow: "0 8px 30px rgba(0,0,0,0.6)" },
-  cardLarge: { background: "#0b1720", padding: isMobile ? 14: 18, borderRadius: 12, boxShadow: "0 8px 30px rgba(0,0,0,0.6)", width: "100%",maxWidth: "100%" },
-  rightPanel: {width: "100%" ,position: "relative",marginTop: isMobile ? 16 : 0,},
-  soldBox: {width: "100%", maxHeight: isMobile ? "none" : "30vh", overflow: "auto", padding: 12, borderRadius: 14,marginBottom: 16, background: "rgba(0,0,0,0.6)", boxSizing: "border-box"},
-  container: { maxWidth: isMobile ? "100%" : 420,minHeight: "100vh",width: "100%",justifyContent: "center",alignItems: "stretch", margin: "0 auto" , padding: isMobile ? 12 : 20 , display: "flex",flexDirection: isMobile ? "column" : "row", gap: 16 ,boxSizing: "border-box", background: "rgba(0,0,0,0.6)" },
-  input: { width: "100%",padding: "12px 14px",marginBottom: 12, borderRadius: 8, border: "1px solid #223",fontSize: 16, background: "#07111a", color: "#fff", width: 260 },
+  app: {
+    minHeight: "100vh",
+    width: "100%",
+    background: "linear-gradient(180deg,#072339,#041826)",
+    padding: 12,
+    overflowX: "hidden",
+    color: "#fff",
+    fontFamily: "Inter, system-ui, sans-serif"
+  },
+
+  centered: {
+    minHeight: "100vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+
+  container: {
+    width: "100%",
+    maxWidth: "100%",
+    display: "flex",
+    flexDirection: "column",
+    gap: 16
+  },
+
+  card: {
+    width: "100%",
+    background: "#0b1720",
+    padding: 16,
+    borderRadius: 12,
+    boxSizing: "border-box"
+  },
+
+  cardLarge: {
+    width: "100%",
+    background: "#0b1720",
+    padding: 14,
+    borderRadius: 12
+  },
+
+  input: {
+    width: "100%",
+    padding: "12px 14px",
+    borderRadius: 8,
+    border: "1px solid #223",
+    background: "#07111a",
+    color: "#fff",
+    fontSize: 16
+  },
+
   greenBtn: {
-      flex: 1,
-      background: "#1ecf5b",
-      border: 0,
-      padding: isMobile ? "12px 10px" : "10px 14px",
-      borderRadius: 20,
-      cursor: "pointer",
-      width: isMobile ? "100%" : "auto",
-      fontWeight: 700,
-      color:"#fff"
-    },
+    width: "100%",
+    background: "#1ecf5b",
+    padding: 12,
+    borderRadius: 20,
+    fontWeight: 700,
+    color: "#fff"
+  },
+
   blueBtn: {
-      flex: 1,
-      background: "#21b8ff",
-      border: 0,
-      padding: isMobile ? "12px 10px" : "10px 14px",
-      borderRadius: 20,
-      cursor: "pointer",
-      width: isMobile ? "100%" : "auto",
-      fontWeight: 700,
-      color:"#fff" 
-    },
-  redBtn: {
-      background: "#ff5b5b",
-      border: 0,
-      padding: isMobile ? "12px 10px" : "10px 14px",
-      borderRadius: 20,
-      cursor: "pointer",
-      width: isMobile ? "100%" : "auto",
-      fontWeight: 700,
-      color:"#fff" 
-    },
-  orangeBtn: {
-      background: "#f5a623",
-      border: 0,
-      padding: isMobile ? "12px 10px" : "10px 14px",
-      borderRadius: 20,
-      cursor: "pointer",
-      width: isMobile ? "100%" : "auto",
-      fontWeight: 700,
-      color:"#fff" 
-    },
+    width: "100%",
+    background: "#21b8ff",
+    padding: 12,
+    borderRadius: 20,
+    fontWeight: 700,
+    color: "#fff"
+  },
+
   grayBtn: {
-      background: "#666",
-      border: 0,
-      padding: isMobile ? "12px 10px" : "10px 14px",
-      borderRadius: 20,
-      cursor: "pointer",
-      width: isMobile ? "100%" : "auto",
-      fontWeight: 700,
-      color:"#fff"
-    },
-    bidbuttons: {
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr",
-      background: "#1ecf5b",
-      borderRadius: 20,
-      cursor: "pointer",
-      border: 0,
-      padding: isMobile ? "10px" : "14px",
-      fontSize: isMobile ? 14 : 16,
-      fontWeight: 700,
-      color:"#fff" 
-    },
-  teamGrid: { display: "flex", flexWrap: "wrap",justifyContent: "center", gap: 12,width: "100%" },
+    width: "100%",
+    background: "#555",
+    padding: 12,
+    borderRadius: 20,
+    fontWeight: 700,
+    color: "#fff"
+  },
+
+  orangeBtn: {
+    width: "100%",
+    background: "#f5a623",
+    padding: 12,
+    borderRadius: 20,
+    fontWeight: 700,
+    color: "#fff"
+  },
+
+  bidbuttons: {
+    width: "100%",
+    padding: 12,
+    marginBottom: 8,
+    borderRadius: 20,
+    fontSize: 14,
+    fontWeight: 700,
+    background: "#1ecf5b",
+    color: "#fff"
+  },
+
+  soldBox: {
+    maxHeight: 180,
+    overflowY: "auto",
+    padding: 12,
+    borderRadius: 12,
+    background: "rgba(0,0,0,0.6)"
+  },
+
+  teamGrid: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: 10
+  },
+
   teamBtn: {
-      display: "flex",
-      flexDirection: isMobile ? "column" : "row",
-      justifyContent: "center",
-      alignItems: "center",
-      padding: isMobile ? 8 : 10,
-      minWidth: isMobile ? "45%" : 110,
-      width: isMobile ? "45%" : "auto",
-      borderRadius: 8,
-      background: "#07202b",
-      color: "#fff",
-      cursor: "pointer",
-      textAlign: "center",
-    },
-  playersList: { marginTop: 8, display: "flex",flexWrap: "wrap",justifyContent: "center", flexDirection: "column", gap: 8, maxHeight: 220, overflowY: "auto" },
-  playerRow: { display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 8px", borderRadius: 6, background: "#07121a" },
-  avatar: { width: 36, height: 36, borderRadius: 8, background: "#08202a", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700 },
-  tag: { background: "#0f0", color: "#012", padding: "4px 8px", borderRadius: 6, fontSize: 12 },
-  code: { background: "#0b3", padding: "4px 8px", borderRadius: 6, color: "#012", fontWeight: 800 },
-  error: { marginTop: 12, color: "salmon" },
-  toast: { position: "fixed", bottom: 20, left: 20, background: "#222", color: "#fff", padding: 12, borderRadius: 8 }
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: 10,
+    borderRadius: 8,
+    background: "#07202b",
+    color: "#fff"
+  },
+
+  playersList: {
+    maxHeight: 200,
+    overflowY: "auto",
+    display: "flex",
+    flexDirection: "column",
+    gap: 8
+  },
+
+  playerRow: {
+    display: "flex",
+    justifyContent: "space-between",
+    padding: 8,
+    background: "#07121a",
+    borderRadius: 6
+  },
+
+  toast: {
+    position: "fixed",
+    bottom: 20,
+    left: "50%",
+    transform: "translateX(-50%)",
+    background: "#222",
+    padding: 12,
+    borderRadius: 8,
+    zIndex: 9999
+  }
 };
