@@ -1296,7 +1296,8 @@ function renderRemainingPanel() {
 const styles = {
   app: { minHeight: "100vh", background: "linear-gradient(180deg,#072339,#041826)", padding: "12px",width: "100%", maxWidth: "100%", overflowX: "hidden" , color: "#fff", fontFamily: "Inter, system-ui, sans-serif" },
   centered: { display: "flex", justifyContent: "center", alignItems: "center", minHeight: "80vh" },
-  card: { width: "100%", maxWidth: 420,background: "#0b1720", padding: 20, borderRadius: 14,display: "flex", flexDirection: "column", boxShadow: "0 8px 30px rgba(0,0,0,0.6)" },
+  page: {minHeight: "100vh", width: "100%", display: "flex", justifyContent: "center",alignItems: "flex-start", padding: "16px", boxSizing: "border-box"},
+  card: { width: "100%", maxWidth: "100%",minHeight: "100vh", background: "#0b1720", padding: 16, borderRadius: 0,display: "flex", flexDirection: "column", boxShadow: "0 8px 30px rgba(0,0,0,0.6)" },
   cardLarge: { background: "#0b1720", padding: 18, borderRadius: 10, boxShadow: "0 8px 30px rgba(0,0,0,0.6)", width: "100%" },
   container: { maxWidth: 420, margin: "0 auto" , padding: "16px" , display: "flex",flexDirection: "column", gap: 18 },
   input: { width: "100%",padding: "12px 14px",marginBottom: 12, borderRadius: 8, border: "1px solid #223",fontSize: 16, background: "#07111a", color: "#fff", width: 260 },
