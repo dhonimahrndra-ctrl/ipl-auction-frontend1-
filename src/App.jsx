@@ -382,7 +382,7 @@ export default function App() {
   function renderLobby() {
     return (
       <div style={styles.container}>
-        <div style={{ ...styles.card, width: "65%" }}>
+        <div style={styles.card}>
           <h2>Room: <span style={styles.code}>{roomState?.code || "—"}</span></h2>
           <div style={{ marginBottom: 8 }}>
             You: <strong>{name}</strong> {isHost && <span style={styles.tag}>Host</span>}
@@ -1297,9 +1297,9 @@ const styles = {
   app: { minHeight: "100vh", background: "linear-gradient(180deg,#072339,#041826)", padding: "12px",width: "100%", maxWidth: "100%", overflowX: "hidden" , color: "#fff", fontFamily: "Inter, system-ui, sans-serif" },
   centered: { display: "flex", justifyContent: "center", alignItems: "center", minHeight: "80vh" },
   page: {minHeight: "100vh", width: "100%", display: "flex", justifyContent: "center",alignItems: "flex-start", padding: "16px", boxSizing: "border-box"},
-  card: { width: "100%", maxWidth: "100%",minHeight: "100vh", background: "#0b1720", padding: 16, borderRadius: 0,display: "flex", flexDirection: "column", boxShadow: "0 8px 30px rgba(0,0,0,0.6)" },
+  card: { width: "100%", maxWidth: "100%",minHeight: "100vh", background: "#0b1720", padding: 16,boxSizing: "border-box", borderRadius: 0,display: "flex", flexDirection: "column", boxShadow: "0 8px 30px rgba(0,0,0,0.6)" },
   cardLarge: { background: "#0b1720", padding: 18, borderRadius: 10, boxShadow: "0 8px 30px rgba(0,0,0,0.6)", width: "100%" },
-  container: { maxWidth: 420, margin: "0 auto" , padding: "16px" , display: "flex",flexDirection: "column", gap: 18 },
+  container: { maxWidth: 420,minHeight: "100vh",width: "100%",justifyContent: "center",alignItems: "stretch", margin: "0 auto" , padding: "16px" , display: "flex",flexDirection: "column", gap: 18 },
   input: { width: "100%",padding: "12px 14px",marginBottom: 12, borderRadius: 8, border: "1px solid #223",fontSize: 16, background: "#07111a", color: "#fff", width: 260 },
   greenBtn: {
       flex: 1,
@@ -1353,7 +1353,7 @@ const styles = {
       fontWeight: 700,
       color:"#fff"
     },
-  teamGrid: { display: "flex", flexWrap: "wrap",justifyContent: "center", gap: 12,width: "100%" },
+  teamGrid: { display: "flex", alignItems: "center",flexWrap: "wrap", gap: 10,width: "100%" },
   teamBtn: {
       display: "flex",
       flexDirection: isMobile ? "column" : "row",
