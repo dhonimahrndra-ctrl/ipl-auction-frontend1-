@@ -561,24 +561,24 @@ export default function App() {
               <button
                 onClick={placeBaseBid}
                 disabled={currentBid !== null}
-                style={styles.greenBtn}
+                style={styles.bidbuttons}
               >
                 Bid @ Base ({currentPlayer?.Base})
               </button>
 
-              <button onClick={() => placeIncrement(0.2)} style={styles.greenBtn}>
+              <button onClick={() => placeIncrement(0.2)} style={styles.bidbuttons}>
                 +20 Lakhs
               </button>
 
-              <button onClick={() => placeIncrement(0.5)} style={styles.blueBtn}>
+              <button onClick={() => placeIncrement(0.5)} style={styles.bidbuttons}>
                 +50 Lakhs
               </button>
 
-              <button onClick={() => placeIncrement(1)} style={styles.redBtn}>
+              <button onClick={() => placeIncrement(1)} style={styles.bidbuttons}>
                 +1 Cr
               </button>
 
-              <button onClick={useRTM} style={styles.orangeBtn}>
+              <button onClick={useRTM} style={styles.bidbuttons}>
                 Use RTM
               </button>
 
@@ -1299,10 +1299,10 @@ const styles = {
   centered: { display: "flex", justifyContent: "center", alignItems: "center", minHeight: "80vh" },
   page: {minHeight: "100vh", width: "100%", display: "flex", justifyContent: "center",alignItems: "flex-start", padding: isMobile ? "12px" : "16px", boxSizing: "border-box"},
   card: { width: "100%", maxWidth: "100%",minHeight: "100vh", background: "#0b1720", padding: 16,boxSizing: "border-box", borderRadius: 0,display: "flex", flexDirection: "column", boxShadow: "0 8px 30px rgba(0,0,0,0.6)" },
-  cardLarge: { background: "#0b1720", padding: 18, borderRadius: 10, boxShadow: "0 8px 30px rgba(0,0,0,0.6)", width: "100%" },
+  cardLarge: { background: "#0b1720", padding: 16, borderRadius: 10, boxShadow: "0 8px 30px rgba(0,0,0,0.6)", width: "100%" },
   rightPanel: {width: isMobile ? "100%" : 360,position: isMobile ? "relative" : "sticky",top: isMobile ? "auto" : 20,marginTop: isMobile ? 16 : 0, maxWidth: 360, marginTop: 12},
   soldBox: {width: "100%", maxHeight: "30vh", overflowY: "auto", padding: 12, borderRadius: 14, background: "rgba(0,0,0,0.6)", boxSizing: "border-box"},
-  container: { maxWidth: isMobile ? "100%" : 420,minHeight: "100vh",width: "100%",justifyContent: "center",alignItems: "stretch", margin: "0 auto" , padding: isMobile ? 12 : 16 , display: "flex",flexDirection: "column", gap: isMobile ? 10 : 14 ,boxSizing: "border-box", background: "rgba(0,0,0,0.6)" },
+  container: { maxWidth: isMobile ? "100%" : 420,minHeight: "100vh",width: "100%",justifyContent: "center",alignItems: "stretch", margin: "0 auto" , padding: isMobile ? 12 : 16 , display: "flex",flexDirection: window.innerWidth < 768 ? "column" : "row", gap: isMobile ? 12 : 14 ,boxSizing: "border-box", background: "rgba(0,0,0,0.6)" },
   input: { width: "100%",padding: "12px 14px",marginBottom: 12, borderRadius: 8, border: "1px solid #223",fontSize: 16, background: "#07111a", color: "#fff", width: 260 },
   greenBtn: {
       flex: 1,
@@ -1355,6 +1355,11 @@ const styles = {
       width: isMobile ? "100%" : "auto",
       fontWeight: 700,
       color:"#fff"
+    },
+    bidbuttons: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 10
     },
   teamGrid: { display: "flex", flexWrap: "wrap",justifyContent: "center", gap: 12,width: "100%" },
   teamBtn: {
