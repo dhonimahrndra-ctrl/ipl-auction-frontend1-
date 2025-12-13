@@ -13,17 +13,73 @@ html,body {
 body {
   margin: 0;
 }
+/* ========================= */
+/* MOBILE RESPONSIVE FIX */
+/* ========================= */
+
 @media (max-width: 768px) {
   body {
-    font-size: 14px;
+    overflow-x: hidden;
   }
 
-  button {
+  /* Main app container */
+  .container,
+  .app,
+  .main {
+    flex-direction: column !important;
+    width: 100% !important;
     padding: 12px !important;
-    font-size: 14px !important;
   }
 
+  /* Player card */
+  .card,
+  .cardLarge {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 14px;
+  }
+
+  /* Right side panels (Remaining + Teams) */
+  .sidePanel,
+  .rightPanel {
+    position: static !important;
+    width: 100% !important;
+    margin-top: 14px;
+  }
+
+  /* Buttons */
+  button {
+    width: 100% !important;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 12px !important;
+  }
+
+  /* Bid buttons container */
+  .bidButtons,
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Team list */
+  .teamRow {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /* Timer bar */
+  .progressBar {
+    width: 100% !important;
+  }
+
+  /* Text sizes */
   h1, h2 {
-    font-size: 20px;
+    font-size: 20px !important;
+  }
+
+  h3 {
+    font-size: 16px !important;
   }
 }

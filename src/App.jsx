@@ -381,7 +381,7 @@ export default function App() {
 
   function renderLobby() {
     return (
-      <div style={styles.container}>
+      <div className="container">
         <div style={styles.card}>
           <h2>Room: <span style={styles.code}>{roomState?.code || "—"}</span></h2>
           <div style={{ marginBottom: 8 }}>
@@ -481,7 +481,7 @@ export default function App() {
   const bidTeam = roomState.currentBidTeamId;
 
   return (
-    <div style={styles.container}>
+    <div className="container">
       <div style={styles.cardLarge}>
 
         {/* MAIN TOP SECTION */}
