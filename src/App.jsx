@@ -563,31 +563,41 @@ useEffect(() => {
             </div>
 
             {/* BIDDING BUTTONS */}
-            <div className="bid-actions" style={{ marginTop:18 }}>
+         <div>   <div style={styles.bidGrid}>
 
-              <button
-                onClick={placeBaseBid}
-                disabled={currentBid !== null}
-                style={styles.bidbuttons}
-              >
-                Bid @ Base ({currentPlayer?.Base})
-              </button>
+  <button
+    onClick={placeBaseBid}
+    disabled={currentBid !== null}
+    style={styles.bidbuttons}
+  >
+    Bid @ Base ({currentPlayer?.Base})
+  </button>
 
-              <button onClick={() => placeIncrement(0.2)} style={styles.bidbuttons}>
-                +20 Lakhs
-              </button>
+  <button
+    onClick={() => placeIncrement(0.2)}
+    style={styles.bidbuttons}
+  >
+    +20 Lakhs
+  </button>
 
-              <button onClick={() => placeIncrement(0.5)} style={styles.bidbuttons}>
-                +50 Lakhs
-              </button>
+  <button
+    onClick={() => placeIncrement(0.5)}
+    style={styles.bidbuttons}
+  >
+    +50 Lakhs
+  </button>
 
-              <button onClick={() => placeIncrement(1)} style={styles.bidbuttons}>
-                +1 Cr
-              </button>
+  <button
+    onClick={() => placeIncrement(1)}
+    style={styles.bidbuttons}
+  >
+    +1 Cr
+  </button>
+</div>
 
-              <button onClick={useRTM} style={styles.orangeBtn}>
-                Use RTM
-              </button>
+<button onClick={useRTM} style={styles.orangeBtn}>
+  Use RTM
+</button>
 
               {isHost && (
                 <>
@@ -601,7 +611,7 @@ useEffect(() => {
           </div>
 
           {/* RIGHT SIDE */}
-         {/*</div> <div style={styles.rightPanel}> */}
+        </div> <div style={styles.rightPanel}> 
 
             {/* SOLD LIST */}
             <div style={styles.soldBox}>
@@ -1316,6 +1326,12 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center"
+  },
+  bidGrid: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: 10,
+    marginTop: 12
   },
 
   container: {
