@@ -1353,7 +1353,7 @@ const styles = {
       fontWeight: 700,
       color:"#fff"
     },
-  teamGrid: { display: "flex", alignItems: "center",flexWrap: "wrap", gap: 10,width: "100%" },
+  teamGrid: { display: "grid", gridTemplateColumns: "repeat(2, 1fr)",gap: 12},
   teamBtn: {
       display: "flex",
       flexDirection: isMobile ? "column" : "row",
